@@ -1,0 +1,4 @@
+class Welcome {
+	public constructor() {
+	}
+}

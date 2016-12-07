@@ -1,0 +1,4 @@
+class ShowYourScore {
+	public constructor() {
+	}
+}
