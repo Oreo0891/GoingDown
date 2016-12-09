@@ -9,12 +9,15 @@ class GameStart extends eui.Component{
 	private countScore:egret.Timer = new egret.Timer(1000,0);
 	private leftwall:egret.Bitmap;
 	private rightwall:egret.Bitmap;
-	private yourScore:number = 0;
+	public static yourScore:number = 0;
+	private badfloornum:number = 0;
 
 	private theFirstNum:egret.Bitmap;
 	private theSecondNum:egret.Bitmap;
 	private theThirdNum:egret.Bitmap;
 	private theFourthNum:egret.Bitmap;
+	public sound:Sound=new Sound();
+
 
 	public constructor() {
 		super();
@@ -26,15 +29,25 @@ class GameStart extends eui.Component{
 		var rdder:number = Math.floor(Math.random() * 305) + 40;
 		var rdtype:number = Math.floor(Math.random()* 5);
 		var floor:Floors = new Floors(rdtype);
-
-		this.floorList.push(floor);		
-		this.addChild(floor);
+		// for(var i:number = 0; i<this.floorList.length ;i++){
+		// if(floor.floortype == 4){
+		// 	this.badfloornum += 1;
+		// }
+		// // }
+		// if(this.badfloornum <=2){
+			this.floorList.push(floor);		
+			this.addChild(floor);
+		// }
+		
 		floor.x = rdder;
 		floor.y = 600;
 		egret.Tween.get(floor).to({y:100},4000).call(()=>{
 			if(floor&&floor.parent){
 				this.floorList.shift();
 				floor.parent.removeChild(floor);
+				// if(floor.floortype == 4){
+				// 	this.badfloornum -= 1;
+				// }
 			}
 		},Floors,[floor]);
 	}
@@ -101,10 +114,10 @@ class GameStart extends eui.Component{
 	}
 
 	private showScore(){
-		var thousand:number = Math.floor(this.yourScore / 1000);
-		var hundurd:number = Math.floor((this.yourScore % 1000) / 100);
-		var ten:number = Math.floor((this.yourScore % 100) / 10);
-		var one:number = Math.floor(this.yourScore % 10);
+		var thousand:number = Math.floor(GameStart.yourScore / 1000);
+		var hundurd:number = Math.floor((GameStart.yourScore % 1000) / 100);
+		var ten:number = Math.floor((GameStart.yourScore % 100) / 10);
+		var one:number = Math.floor(GameStart.yourScore % 10);
 
 		this.theFirstNum = Main.createBitmapByName(thousand + "_png");
 		this.theSecondNum = Main.createBitmapByName(hundurd + "_png");
@@ -132,12 +145,12 @@ class GameStart extends eui.Component{
 
 	private updateScore() {
 		this.countScore.addEventListener(egret.TimerEvent.TIMER,()=>{
-			this.yourScore++;
+			GameStart.yourScore++;
 
-			var thousand:number = Math.floor(this.yourScore / 1000);
-			var hundurd:number = Math.floor((this.yourScore % 1000) / 100);
-			var ten:number = Math.floor((this.yourScore % 100) / 10);
-			var one:number = Math.floor(this.yourScore % 10);
+			var thousand:number = Math.floor(GameStart.yourScore / 1000);
+			var hundurd:number = Math.floor((GameStart.yourScore % 1000) / 100);
+			var ten:number = Math.floor((GameStart.yourScore % 100) / 10);
+			var one:number = Math.floor(GameStart.yourScore % 10);
 
 			if(this.theFirstNum&&this.theFirstNum){
 				this.theFirstNum.parent.removeChild(this.theFirstNum);
@@ -192,6 +205,7 @@ class GameStart extends eui.Component{
 					case 0:
 						this.theperson.standOn();
 						this.theperson.ishurt = 0;
+						this.sound.touch_S();
 						break;
 				
 					case 1:
@@ -201,21 +215,24 @@ class GameStart extends eui.Component{
 								thisfloor.parent.removeChild(thisfloor);
 							}
 						this.floorList.splice(i,1);
+						this.sound.dispear_S();						
 						break;
 					case 2:
 						this.theperson.standOn();						
 						this.theperson.x -= 5;
 						this.theperson.ishurt = 0;
+						this.sound.roll_S();
 						
 						break;
 					case 3:
-						this.theperson.y -= 50;
+						this.theperson.y -= 30;
 						this.theperson.ishurt = 0;
-						
+						this.sound.jump_S();
 						break;
 					case 4:
 						this.theperson.standOn();					
 						this.beHurt();
+						this.sound.hurt_S();
 						break;
 				}
 			}
@@ -270,8 +287,6 @@ class GameStart extends eui.Component{
         return rect1.intersects(rect2);
     }
 
-	
-
 	private gameOver(){
 		this.rb.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.theperson.moveRight,this.theperson);
 		this.rb.removeEventListener(egret.TouchEvent.TOUCH_END,this.theperson.stopRight,this.theperson);
@@ -289,5 +304,11 @@ class GameStart extends eui.Component{
 		this.createFloor.stop();
 		this.createFloor.removeEventListener(egret.TimerEvent.TIMER,this.makeFloor,this);
 		
+		var overPage:ShowYourScore = new ShowYourScore();
+
+		if(this&&this.parent){
+			this.parent.addChild(overPage);
+			this.parent.removeChild(this);
+		}
 	}
 } 

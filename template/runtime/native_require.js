@@ -17,6 +17,7 @@ var game_file_list = [
 	"bin-debug/Main.js",
 	"bin-debug/Person.js",
 	"bin-debug/ShowYourScore.js",
+	"bin-debug/Sound.js",
 	"bin-debug/ThemeAdapter.js",
 	"bin-debug/Welcome.js",
 	//----auto game_file_list end----

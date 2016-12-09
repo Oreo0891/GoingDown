@@ -126,8 +126,10 @@ var Main = (function (_super) {
      * Create scene interface
      */
     p.startCreateScene = function () {
-        var gameview = new GameStart();
-        this.addChild(gameview);
+        var welcomepage = new Welcome();
+        this.addChild(welcomepage);
+        //    var showthis:ShowYourScore = new ShowYourScore();
+        //    this.addChild(showthis);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

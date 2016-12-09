@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,Main_png,ceil_png,wall_png,left_png,right_png,floor4_png,floor3_png,floor2_png,floor1_png,floor0_png,person_png,blood_png,9_png,0_png,1_png,2_png,3_png,4_png,5_png,6_png,7_png,8_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,Main_png,ceil_png,wall_png,left_png,right_png,floor4_png,floor3_png,floor2_png,floor1_png,floor0_png,person_png,blood_png,9_png,0_png,1_png,2_png,3_png,4_png,5_png,6_png,7_png,8_png,start1_png,start2_png,tittle_png,help1_png,help2_png,sound_dispear_mp3,sound_hurt_mp3,sound_jump_mp3,sound_roll_mp3,sound_touch_mp3",
 			"name": "preload"
 		},
 		{
@@ -23,6 +23,10 @@
 		{
 			"keys": "9_png,8_png,7_png,6_png,5_png,4_png,3_png,2_png,1_png,0_png",
 			"name": "num_pic"
+		},
+		{
+			"keys": "help2_png,start2_png,tittle_png,start1_png,help1_png",
+			"name": "help_pic"
 		}
 	],
 	"resources": [
@@ -265,6 +269,56 @@
 			"url": "assets/MyUI/8.png",
 			"type": "image",
 			"name": "8_png"
+		},
+		{
+			"url": "assets/MyUI/start1.png",
+			"type": "image",
+			"name": "start1_png"
+		},
+		{
+			"url": "assets/MyUI/start2.png",
+			"type": "image",
+			"name": "start2_png"
+		},
+		{
+			"url": "assets/MyUI/tittle.png",
+			"type": "image",
+			"name": "tittle_png"
+		},
+		{
+			"url": "assets/MyUI/help.png",
+			"type": "image",
+			"name": "help1_png"
+		},
+		{
+			"url": "assets/MyUI/help2.png",
+			"type": "image",
+			"name": "help2_png"
+		},
+		{
+			"name": "sound_dispear_mp3",
+			"type": "sound",
+			"url": "assets/MySound/sound_dispear.mp3"
+		},
+		{
+			"name": "sound_hurt_mp3",
+			"type": "sound",
+			"url": "assets/MySound/sound_hurt.mp3"
+		},
+		{
+			"name": "sound_jump_mp3",
+			"type": "sound",
+			"url": "assets/MySound/sound_jump.mp3"
+		},
+		{
+			"name": "sound_roll_mp3",
+			"type": "sound",
+			"url": "assets/MySound/sound_roll.mp3"
+		},
+		{
+			"name": "sound_touch_mp3",
+			"type": "sound",
+			"url": "assets/MySound/sound_touch.mp3"
 		}
 	]
 }

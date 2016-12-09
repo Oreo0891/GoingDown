@@ -10,7 +10,8 @@ var GameStart = (function (_super) {
         this.rb = Main.createBitmapByName("right_png");
         this.createFloor = new egret.Timer(800, 0);
         this.countScore = new egret.Timer(1000, 0);
-        this.yourScore = 0;
+        this.badfloornum = 0;
+        this.sound = new Sound();
         this.showthem();
     }
     var d = __define,c=GameStart,p=c.prototype;
@@ -19,8 +20,15 @@ var GameStart = (function (_super) {
         var rdder = Math.floor(Math.random() * 305) + 40;
         var rdtype = Math.floor(Math.random() * 5);
         var floor = new Floors(rdtype);
+        // for(var i:number = 0; i<this.floorList.length ;i++){
+        // if(floor.floortype == 4){
+        // 	this.badfloornum += 1;
+        // }
+        // // }
+        // if(this.badfloornum <=2){
         this.floorList.push(floor);
         this.addChild(floor);
+        // }
         floor.x = rdder;
         floor.y = 600;
         egret.Tween.get(floor).to({ y: 100 }, 4000).call(function () {
@@ -79,10 +87,10 @@ var GameStart = (function (_super) {
         this.theperson.y = 100;
     };
     p.showScore = function () {
-        var thousand = Math.floor(this.yourScore / 1000);
-        var hundurd = Math.floor((this.yourScore % 1000) / 100);
-        var ten = Math.floor((this.yourScore % 100) / 10);
-        var one = Math.floor(this.yourScore % 10);
+        var thousand = Math.floor(GameStart.yourScore / 1000);
+        var hundurd = Math.floor((GameStart.yourScore % 1000) / 100);
+        var ten = Math.floor((GameStart.yourScore % 100) / 10);
+        var one = Math.floor(GameStart.yourScore % 10);
         this.theFirstNum = Main.createBitmapByName(thousand + "_png");
         this.theSecondNum = Main.createBitmapByName(hundurd + "_png");
         this.theThirdNum = Main.createBitmapByName(ten + "_png");
@@ -106,11 +114,11 @@ var GameStart = (function (_super) {
     p.updateScore = function () {
         var _this = this;
         this.countScore.addEventListener(egret.TimerEvent.TIMER, function () {
-            _this.yourScore++;
-            var thousand = Math.floor(_this.yourScore / 1000);
-            var hundurd = Math.floor((_this.yourScore % 1000) / 100);
-            var ten = Math.floor((_this.yourScore % 100) / 10);
-            var one = Math.floor(_this.yourScore % 10);
+            GameStart.yourScore++;
+            var thousand = Math.floor(GameStart.yourScore / 1000);
+            var hundurd = Math.floor((GameStart.yourScore % 1000) / 100);
+            var ten = Math.floor((GameStart.yourScore % 100) / 10);
+            var one = Math.floor(GameStart.yourScore % 10);
             if (_this.theFirstNum && _this.theFirstNum) {
                 _this.theFirstNum.parent.removeChild(_this.theFirstNum);
             }
@@ -153,6 +161,7 @@ var GameStart = (function (_super) {
                     case 0:
                         this.theperson.standOn();
                         this.theperson.ishurt = 0;
+                        this.sound.touch_S();
                         break;
                     case 1:
                         this.theperson.standOn();
@@ -161,19 +170,23 @@ var GameStart = (function (_super) {
                             thisfloor.parent.removeChild(thisfloor);
                         }
                         this.floorList.splice(i, 1);
+                        this.sound.dispear_S();
                         break;
                     case 2:
                         this.theperson.standOn();
                         this.theperson.x -= 5;
                         this.theperson.ishurt = 0;
+                        this.sound.roll_S();
                         break;
                     case 3:
-                        this.theperson.y -= 50;
+                        this.theperson.y -= 30;
                         this.theperson.ishurt = 0;
+                        this.sound.jump_S();
                         break;
                     case 4:
                         this.theperson.standOn();
                         this.beHurt();
+                        this.sound.hurt_S();
                         break;
                 }
             }
@@ -226,7 +239,13 @@ var GameStart = (function (_super) {
         this.createFloor.removeEventListener(egret.TimerEvent.TIMER, this.makeFloor, this);
         this.createFloor.stop();
         this.createFloor.removeEventListener(egret.TimerEvent.TIMER, this.makeFloor, this);
+        var overPage = new ShowYourScore();
+        if (this && this.parent) {
+            this.parent.addChild(overPage);
+            this.parent.removeChild(this);
+        }
     };
+    GameStart.yourScore = 0;
     return GameStart;
 }(eui.Component));
 egret.registerClass(GameStart,'GameStart');
