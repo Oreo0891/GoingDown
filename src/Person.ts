@@ -52,7 +52,7 @@ class Person extends egret.Sprite{
 	}
 
 	public standOn(){
-		this.y -= 8.4;
+		this.y -= 8.2;
 	}
 	
 }

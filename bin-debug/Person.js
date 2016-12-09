@@ -43,7 +43,7 @@ var Person = (function (_super) {
         godown.start();
     };
     p.standOn = function () {
-        this.y -= 9.5;
+        this.y -= 8.2;
     };
     return Person;
 }(egret.Sprite));
