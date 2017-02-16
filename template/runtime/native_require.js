@@ -4,21 +4,22 @@ var game_file_list = [
     //----auto game_file_list start----
 	"libs/modules/egret/egret.js",
 	"libs/modules/egret/egret.native.js",
-	"libs/modules/game/game.js",
-	"libs/modules/game/game.native.js",
 	"libs/modules/res/res.js",
 	"libs/modules/eui/eui.js",
 	"libs/modules/tween/tween.js",
 	"bin-debug/AssetAdapter.js",
 	"bin-debug/BackGround.js",
+	"bin-debug/Common.js",
 	"bin-debug/Floor.js",
 	"bin-debug/GameStart.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
 	"bin-debug/Person.js",
+	"bin-debug/ResourceManager.js",
 	"bin-debug/ShowYourScore.js",
 	"bin-debug/Sound.js",
 	"bin-debug/ThemeAdapter.js",
+	"bin-debug/Utils.js",
 	"bin-debug/Welcome.js",
 	//----auto game_file_list end----
 ];
@@ -37,7 +38,7 @@ egret_native.requireFiles = function () {
 egret_native.egretInit = function () {
     if(egret_native.featureEnable) {
         //控制一些优化方案是否开启
-        egret_native.featureEnable({
+        var result = egret_native.featureEnable({
             
         });
     }

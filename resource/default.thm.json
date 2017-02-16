@@ -16,7 +16,7 @@
   },
   "autoGenerateExmlsList": true,
   "exmls": [
-    "resource/assets/Skins/GameBG.exml",
+    "resource/assets/Skin/BG.exml",
     "resource/eui_skins/ButtonSkin.exml",
     "resource/eui_skins/CheckBoxSkin.exml",
     "resource/eui_skins/HScrollBarSkin.exml",

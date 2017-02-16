@@ -2,11 +2,13 @@ var ShowYourScore = (function (_super) {
     __extends(ShowYourScore, _super);
     function ShowYourScore() {
         _super.call(this);
+        this.skinName = "resource/assets/Skin/BG.exml";
         this.bgColor();
         this.showResult();
         this.makeBTN();
     }
     var d = __define,c=ShowYourScore,p=c.prototype;
+    // 背景颜色
     p.bgColor = function () {
         var myshape = new egret.Shape();
         myshape.graphics.beginFill(0x000000, 0.5);
@@ -14,6 +16,7 @@ var ShowYourScore = (function (_super) {
         myshape.graphics.endFill();
         this.addChild(myshape);
     };
+    // 展示游戏结果
     p.showResult = function () {
         var result = new egret.TextField();
         var tip = new egret.TextField();
@@ -40,6 +43,7 @@ var ShowYourScore = (function (_super) {
         this.addChild(tip);
         this.addChild(score);
     };
+    // 创建重玩按钮
     p.makeBTN = function () {
         var _this = this;
         var mybtn = new eui.Button();

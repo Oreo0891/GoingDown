@@ -2,7 +2,7 @@ var Welcome = (function (_super) {
     __extends(Welcome, _super);
     function Welcome() {
         _super.call(this);
-        this.skinName = "resource/assets/Skins/GameBG.exml";
+        this.skinName = "resource/assets/Skin/BG.exml";
         this.makeBlood();
         this.showScore();
         this.makeCeil();
@@ -12,6 +12,7 @@ var Welcome = (function (_super) {
         this.makeButton();
     }
     var d = __define,c=Welcome,p=c.prototype;
+    // 创建提示
     p.makeHint = function () {
         var txtInfo = new egret.TextField;
         this.addChild(txtInfo);
@@ -22,9 +23,10 @@ var Welcome = (function (_super) {
         txtInfo.textColor = 0xffffff;
         txtInfo.text = "轻触屏幕左右按钮移动小人";
     };
+    // 创建按钮
     p.makeButton = function () {
-        var btn1 = Main.createBitmapByName("start1_png");
-        var btn2 = Main.createBitmapByName("start2_png");
+        var btn1 = Utils.createBitmapByName("Down_json.start1");
+        var btn2 = Utils.createBitmapByName("Down_json.start2");
         this.addChild(btn1);
         this.addChild(btn2);
         btn1.touchEnabled = true;
@@ -36,22 +38,25 @@ var Welcome = (function (_super) {
         btn2.x = 150;
         btn2.y = 470;
     };
+    // 开始游戏的跳转方法
     p.startGame = function () {
         var gameBG = new GameStart();
-        if (this && this.parent) {
-            this.parent.addChild(gameBG);
-            this.parent.removeChild(this);
+        if (this.parent && this.parent.parent) {
+            this.parent.parent.addChild(gameBG);
+            this.parent.parent.removeChild(this.parent);
         }
     };
+    // 创建标题
     p.makeTittle = function () {
-        var tittle = Main.createBitmapByName("tittle_png");
+        var tittle = Utils.createBitmapByName("Down_json.tittle");
         this.addChild(tittle);
         tittle.x = 45;
         tittle.y = 120;
     };
+    // 创建帮助图片
     p.makeHelp = function () {
-        var helper1 = Main.createBitmapByName("help1_png");
-        var helper2 = Main.createBitmapByName("help2_png");
+        var helper1 = Utils.createBitmapByName("Down_json.help");
+        var helper2 = Utils.createBitmapByName("Down_json.help2");
         this.addChild(helper1);
         this.addChild(helper2);
         helper2.x = 130;
@@ -59,26 +64,29 @@ var Welcome = (function (_super) {
         helper1.x = 300;
         helper1.y = 240;
     };
+    // 创建场景
     p.makeCeil = function () {
-        var ceil = Main.createBitmapByName("ceil_png");
+        var ceil = Utils.createBitmapByName("Down_json.img_ui");
         this.addChild(ceil);
     };
+    // 创建血量
     p.makeBlood = function () {
-        var blood = Main.createBitmapByName("blood_png");
+        var blood = Utils.createBitmapByName("Down_json.blood");
         this.addChild(blood);
         blood.x = 51;
         blood.y = 34;
     };
+    // 展示分数
     p.showScore = function () {
         var yourScore = 0;
         var thousand = Math.floor(yourScore / 1000);
         var hundurd = Math.floor((yourScore % 1000) / 100);
         var ten = Math.floor((yourScore % 100) / 10);
         var one = Math.floor(yourScore % 10);
-        var theFirstNum = Main.createBitmapByName(thousand + "_png");
-        var theSecondNum = Main.createBitmapByName(hundurd + "_png");
-        var theThirdNum = Main.createBitmapByName(ten + "_png");
-        var theFourthNum = Main.createBitmapByName(one + "_png");
+        var theFirstNum = Utils.createBitmapByName("Down_json." + thousand);
+        var theSecondNum = Utils.createBitmapByName("Down_json." + hundurd);
+        var theThirdNum = Utils.createBitmapByName("Down_json." + ten);
+        var theFourthNum = Utils.createBitmapByName("Down_json." + one);
         this.addChild(theFirstNum);
         this.addChild(theSecondNum);
         this.addChild(theThirdNum);

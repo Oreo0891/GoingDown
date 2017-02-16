@@ -4,14 +4,16 @@ var Person = (function (_super) {
         _super.call(this);
         this.myblood = 3;
         this.ishurt = 0;
-        this.man = Main.createBitmapByName("person_png");
         this.createItem();
         this.moveDown();
     }
     var d = __define,c=Person,p=c.prototype;
+    // 创建人物形象的方法
     p.createItem = function () {
-        this.addChild(this.man);
+        var man = Utils.createBitmapByName("Down_json.person");
+        this.addChild(man);
     };
+    //人物左移方法 
     p.moveLeft = function () {
         var _this = this;
         this.goLeft = new egret.Timer(10, 0);
@@ -20,6 +22,7 @@ var Person = (function (_super) {
         }, this);
         this.goLeft.start();
     };
+    //人物右移方法 
     p.moveRight = function () {
         var _this = this;
         this.goRight = new egret.Timer(10, 0);
@@ -28,12 +31,15 @@ var Person = (function (_super) {
         }, this);
         this.goRight.start();
     };
+    // 按键结束停止左移
     p.stopLeft = function () {
         this.goLeft.stop();
     };
+    // 按键结束停止右移
     p.stopRight = function () {
         this.goRight.stop();
     };
+    // 自然下落的方法
     p.moveDown = function () {
         var _this = this;
         var godown = new egret.Timer(10, 0);
@@ -42,8 +48,9 @@ var Person = (function (_super) {
         }, this);
         godown.start();
     };
+    // 立在板上的方法
     p.standOn = function () {
-        this.y -= 8.2;
+        this.y -= 8;
     };
     return Person;
 }(egret.Sprite));

@@ -18,7 +18,7 @@ var BackGround = (function (_super) {
         this.stageW = this.stage.stageWidth;
         this.stageH = this.stage.stageHeight;
         //读取场景图片
-        this.ScrollImgTexture = RES.getRes("Main_png");
+        this.ScrollImgTexture = RES.getRes("Down_json.Main");
         //记录原始场景图片的高度，用于循环背景
         this.ScrollImgTextureWidth = this.ScrollImgTexture.textureWidth;
         this.ScrollImgTextureHeight = this.ScrollImgTexture.textureHeight;
@@ -30,7 +30,7 @@ var BackGround = (function (_super) {
         //创建背景图片，并将它们拼接起来。
         //单图
         for (var i = 0; i < this.imgCount; i++) {
-            var img = Main.createBitmapByName("Main_png");
+            var img = Utils.createBitmapByName("Down_json.Main");
             //
             img.y = this.stageH * i;
             //

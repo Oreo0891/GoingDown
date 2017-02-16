@@ -1,7 +1,7 @@
-class Welcome extends eui.Component{
+class Welcome extends eui.Component {
 	public constructor() {
 		super();
-		this.skinName = "resource/assets/Skins/GameBG.exml"
+		this.skinName = "resource/assets/Skin/BG.exml";
 
 		this.makeBlood();
 		this.showScore();
@@ -11,9 +11,9 @@ class Welcome extends eui.Component{
 		this.makeHint();
 		this.makeButton();
 	}
-
+	// 创建提示
 	private makeHint() {
-		var txtInfo:egret.TextField = new egret.TextField;
+		var txtInfo: egret.TextField = new egret.TextField;
 		this.addChild(txtInfo);
 		txtInfo.size = 32;
         txtInfo.x = 50;
@@ -23,48 +23,48 @@ class Welcome extends eui.Component{
 		txtInfo.text = "轻触屏幕左右按钮移动小人";
 
 	}
-
+	// 创建按钮
 	private makeButton() {
-		var btn1:egret.Bitmap = Main.createBitmapByName("start1_png");
-		var btn2:egret.Bitmap = Main.createBitmapByName("start2_png");
+		var btn1: egret.Bitmap = Utils.createBitmapByName("Down_json.start1");
+		var btn2: egret.Bitmap = Utils.createBitmapByName("Down_json.start2");
 		this.addChild(btn1);
 		this.addChild(btn2);
 
 		btn1.touchEnabled = true;
 		btn2.touchEnabled = true;
 
-		btn1.addEventListener(egret.TouchEvent.TOUCH_TAP,this.startGame,btn1);
-		btn2.addEventListener(egret.TouchEvent.TOUCH_TAP,this.startGame,btn1);
+		btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.startGame, btn1);
+		btn2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.startGame, btn1);
 
 		btn1.x = 145;
 		btn1.y = 460;
 		btn2.x = 150;
 		btn2.y = 470;
-		
+
 	}
+	// 开始游戏的跳转方法
+	private startGame() {
 
-	private startGame(){
-
-		var gameBG:GameStart= new GameStart();
-		if(this&&this.parent){
-			this.parent.addChild(gameBG);
-			this.parent.removeChild(this);
+		var gameBG: GameStart = new GameStart();
+		if (this.parent && this.parent.parent) {
+			this.parent.parent.addChild(gameBG);
+			this.parent.parent.removeChild(this.parent);
 		}
-		
+
 
 	}
-
+	// 创建标题
 	private makeTittle() {
-		var tittle:egret.Bitmap = Main.createBitmapByName("tittle_png");
+		var tittle: egret.Bitmap = Utils.createBitmapByName("Down_json.tittle");
 		this.addChild(tittle);
 
 		tittle.x = 45;
 		tittle.y = 120;
 	}
-
+	// 创建帮助图片
 	private makeHelp() {
-		var helper1:egret.Bitmap = Main.createBitmapByName("help1_png");
-		var helper2:egret.Bitmap = Main.createBitmapByName("help2_png");
+		var helper1: egret.Bitmap = Utils.createBitmapByName("Down_json.help");
+		var helper2: egret.Bitmap = Utils.createBitmapByName("Down_json.help2");
 
 		this.addChild(helper1);
 		this.addChild(helper2);
@@ -74,30 +74,30 @@ class Welcome extends eui.Component{
 		helper1.x = 300;
 		helper1.y = 240;
 	}
-	
+	// 创建场景
 	private makeCeil() {
-		var ceil:egret.Bitmap = Main.createBitmapByName("ceil_png");
+		var ceil: egret.Bitmap = Utils.createBitmapByName("Down_json.img_ui");
 		this.addChild(ceil);
 	}
-
-	private makeBlood(){
-		var blood:egret.Bitmap = Main.createBitmapByName("blood_png");	
+	// 创建血量
+	private makeBlood() {
+		var blood: egret.Bitmap = Utils.createBitmapByName("Down_json.blood");
 		this.addChild(blood);
 		blood.x = 51;
 		blood.y = 34;
 	}
+	// 展示分数
+	private showScore() {
+		var yourScore: number = 0;
+		var thousand: number = Math.floor(yourScore / 1000);
+		var hundurd: number = Math.floor((yourScore % 1000) / 100);
+		var ten: number = Math.floor((yourScore % 100) / 10);
+		var one: number = Math.floor(yourScore % 10);
 
-	private showScore(){
-		var yourScore:number = 0;
-		var thousand:number = Math.floor(yourScore / 1000);
-		var hundurd:number = Math.floor((yourScore % 1000) / 100);
-		var ten:number = Math.floor((yourScore % 100) / 10);
-		var one:number = Math.floor(yourScore % 10);
-
-		var theFirstNum:egret.Bitmap = Main.createBitmapByName(thousand + "_png");
-		var theSecondNum:egret.Bitmap = Main.createBitmapByName(hundurd + "_png");
-		var theThirdNum:egret.Bitmap = Main.createBitmapByName(ten + "_png");
-		var theFourthNum:egret.Bitmap = Main.createBitmapByName(one + "_png");
+		var theFirstNum: egret.Bitmap = Utils.createBitmapByName("Down_json." + thousand);
+		var theSecondNum: egret.Bitmap = Utils.createBitmapByName("Down_json." + hundurd);
+		var theThirdNum: egret.Bitmap = Utils.createBitmapByName("Down_json." + ten);
+		var theFourthNum: egret.Bitmap = Utils.createBitmapByName("Down_json." + one);
 
 		this.addChild(theFirstNum);
 		this.addChild(theSecondNum);

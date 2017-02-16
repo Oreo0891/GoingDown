@@ -1,32 +1,8 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,Main_png,ceil_png,wall_png,left_png,right_png,floor4_png,floor3_png,floor2_png,floor1_png,floor0_png,person_png,blood_png,9_png,0_png,1_png,2_png,3_png,4_png,5_png,6_png,7_png,8_png,start1_png,start2_png,tittle_png,help1_png,help2_png,sound_dispear_mp3,sound_hurt_mp3,sound_jump_mp3,sound_roll_mp3,sound_touch_mp3",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,Down_json,sound_dispear_mp3,sound_hurt_mp3,sound_jump_mp3,sound_roll_mp3,sound_touch_mp3",
 			"name": "preload"
-		},
-		{
-			"keys": "Main_png,wall_png,ceil_png,blood_png",
-			"name": "container_pic"
-		},
-		{
-			"keys": "person_png",
-			"name": "person_pic"
-		},
-		{
-			"keys": "floor4_png,floor3_png,floor0_png,floor1_png,floor2_png",
-			"name": "floors_pic"
-		},
-		{
-			"keys": "right_png,left_png",
-			"name": "btn_pic"
-		},
-		{
-			"keys": "9_png,8_png,7_png,6_png,5_png,4_png,3_png,2_png,1_png,0_png",
-			"name": "num_pic"
-		},
-		{
-			"keys": "help2_png,start2_png,tittle_png,start1_png,help1_png",
-			"name": "help_pic"
 		}
 	],
 	"resources": [
@@ -161,164 +137,35 @@
 			"name": "description_json"
 		},
 		{
-			"url": "assets/MyUI/Main.png",
-			"type": "image",
-			"name": "Main_png"
+			"url": "assets/MyUI/Down.json",
+			"type": "sheet",
+			"name": "Down_json",
+			"subkeys": "0,1,2,3,4,5,6,7,8,9,Main,blood,btn01,btn02,floor0,floor1,floor2,floor3,floor4,help,help2,img_ui,line,person,start1,start2,tittle"
 		},
 		{
-			"url": "assets/MyUI/img_ui.png",
-			"type": "image",
-			"name": "ceil_png"
-		},
-		{
-			"url": "assets/MyUI/line.png",
-			"type": "image",
-			"name": "wall_png"
-		},
-		{
-			"url": "assets/MyUI/btn01.png",
-			"type": "image",
-			"name": "left_png"
-		},
-		{
-			"url": "assets/MyUI/btn02.png",
-			"type": "image",
-			"name": "right_png"
-		},
-		{
-			"url": "assets/MyUI/floor4.png",
-			"type": "image",
-			"name": "floor4_png"
-		},
-		{
-			"url": "assets/MyUI/floor3.png",
-			"type": "image",
-			"name": "floor3_png"
-		},
-		{
-			"url": "assets/MyUI/floor2.png",
-			"type": "image",
-			"name": "floor2_png"
-		},
-		{
-			"url": "assets/MyUI/floor1.png",
-			"type": "image",
-			"name": "floor1_png"
-		},
-		{
-			"url": "assets/MyUI/floor0.png",
-			"type": "image",
-			"name": "floor0_png"
-		},
-		{
-			"url": "assets/MyUI/person.png",
-			"type": "image",
-			"name": "person_png"
-		},
-		{
-			"url": "assets/MyUI/blood.png",
-			"type": "image",
-			"name": "blood_png"
-		},
-		{
-			"url": "assets/MyUI/9.png",
-			"type": "image",
-			"name": "9_png"
-		},
-		{
-			"url": "assets/MyUI/0.png",
-			"type": "image",
-			"name": "0_png"
-		},
-		{
-			"url": "assets/MyUI/1.png",
-			"type": "image",
-			"name": "1_png"
-		},
-		{
-			"url": "assets/MyUI/2.png",
-			"type": "image",
-			"name": "2_png"
-		},
-		{
-			"url": "assets/MyUI/3.png",
-			"type": "image",
-			"name": "3_png"
-		},
-		{
-			"url": "assets/MyUI/4.png",
-			"type": "image",
-			"name": "4_png"
-		},
-		{
-			"url": "assets/MyUI/5.png",
-			"type": "image",
-			"name": "5_png"
-		},
-		{
-			"url": "assets/MyUI/6.png",
-			"type": "image",
-			"name": "6_png"
-		},
-		{
-			"url": "assets/MyUI/7.png",
-			"type": "image",
-			"name": "7_png"
-		},
-		{
-			"url": "assets/MyUI/8.png",
-			"type": "image",
-			"name": "8_png"
-		},
-		{
-			"url": "assets/MyUI/start1.png",
-			"type": "image",
-			"name": "start1_png"
-		},
-		{
-			"url": "assets/MyUI/start2.png",
-			"type": "image",
-			"name": "start2_png"
-		},
-		{
-			"url": "assets/MyUI/tittle.png",
-			"type": "image",
-			"name": "tittle_png"
-		},
-		{
-			"url": "assets/MyUI/help.png",
-			"type": "image",
-			"name": "help1_png"
-		},
-		{
-			"url": "assets/MyUI/help2.png",
-			"type": "image",
-			"name": "help2_png"
-		},
-		{
-			"name": "sound_dispear_mp3",
+			"url": "assets/MySound/sound_dispear.mp3",
 			"type": "sound",
-			"url": "assets/MySound/sound_dispear.mp3"
+			"name": "sound_dispear_mp3"
 		},
 		{
-			"name": "sound_hurt_mp3",
+			"url": "assets/MySound/sound_hurt.mp3",
 			"type": "sound",
-			"url": "assets/MySound/sound_hurt.mp3"
+			"name": "sound_hurt_mp3"
 		},
 		{
-			"name": "sound_jump_mp3",
+			"url": "assets/MySound/sound_jump.mp3",
 			"type": "sound",
-			"url": "assets/MySound/sound_jump.mp3"
+			"name": "sound_jump_mp3"
 		},
 		{
-			"name": "sound_roll_mp3",
+			"url": "assets/MySound/sound_roll.mp3",
 			"type": "sound",
-			"url": "assets/MySound/sound_roll.mp3"
+			"name": "sound_roll_mp3"
 		},
 		{
-			"name": "sound_touch_mp3",
+			"url": "assets/MySound/sound_touch.mp3",
 			"type": "sound",
-			"url": "assets/MySound/sound_touch.mp3"
+			"name": "sound_touch_mp3"
 		}
 	]
 }

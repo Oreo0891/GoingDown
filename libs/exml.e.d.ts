@@ -1,4 +1,4 @@
-declare class GameBG extends eui.Skin{
+declare class BG extends eui.Skin{
 }
 declare module skins{
 	class ButtonSkin extends eui.Skin{
